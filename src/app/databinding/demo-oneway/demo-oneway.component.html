@@ -1,0 +1,47 @@
+<p>demo-oneway works!</p>
+<!-- Interpolation -->
+<p>name :{{name}}</p>
+<!-- property binding -->
+<input [value]="name" type="text" class="form-control" />
+<p [innerHTML]="name"></p>
+<!-- Event binding -->
+<!-- <button (click)="changeName()" class="btn btn-success">Change</button> -->
+<input type="text" (keyUp)="changeName($event)" />
+<br />
+<br />
+<!-- Two way binding cần formmodules -->
+<input type="text" [(ngModel)]="name" />
+<br />
+<!-- Demo local reference -->
+<h1> Demo local reference </h1>
+<input type = "text" name = "message"/>
+<button class="btn btn-primary" (click) = "showMessage(message.value)">Submit</button>
+<br />
+<div class="container">	
+	<div class="row">
+	<h2><strong>Bootstrap input show password value  By </strong> <a href="https://goo.gl/pR8ito" target="_blank">Nababur</a> <br/></h2><br/>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<!-- Start form -->
+                    <div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input  [(ngModel)]="Email"  #email class="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Fullname</label>
+                        <input #fullname class="password" type="text" class="form-control" name="password" id="password" placeholder="Password">
+                      </div>
+                      <div class="form-check">
+                        <button class="btn btn-info" type="button" name="showpassword" id="showpassword" value="Show Password">Show password</button> 
+                        <button type="submit" class="btn btn-primary" (click) = "getFullname(fullname.value)">Submit</button>
+                      </div>
+                    </div>
+                    <br />
+                    <h1>{{Email}}: </h1>
+                    <h1>{{FullName}}: </h1>
+            
+			<!-- End form -->
+		</div>
+		
+	</div>
+</div>
