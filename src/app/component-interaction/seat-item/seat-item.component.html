@@ -1,0 +1,4 @@
+<td>
+    <button [disabled]="seat.TrangThai" [ngClass]="{disableButton: seat.TrangThai, primary: isBooking}" class="btn btn-success"
+        (click)="chooseSeat(seat)">{{seat.SoGhe}}</button>
+</td>

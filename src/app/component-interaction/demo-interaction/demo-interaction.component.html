@@ -1,0 +1,15 @@
+<p>demo-interaction works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div class="col-4" *ngFor="let item of studentArr">
+                <app-student-item (studentEmitter)="handleOutputStudent($event)"[studentInput]="item"></app-student-item>
+            </div>
+        </div>
+        <div class="col-5">
+            <h3>Sinh vien duoc chon</h3>
+            <p class="lead">{{chosenStudent.name}}</p>
+            <p class="lead">{{chosenStudent.age}}</p>
+        </div>
+    </div>
+</div>

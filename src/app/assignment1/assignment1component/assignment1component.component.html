@@ -1,0 +1,72 @@
+<div class="w-75 mx-auto">
+    <div>
+        <button (click)="setIsAddProduct(true)" class="btn btn-success">Them san pham</button>
+        <button (click)="setIsAddProduct(false)" class="btn btn-success">Danh sach san pham</button>
+    </div>
+</div>
+<!-- Form add product -->
+<div class="card">
+    <div class="card-header bg-dark text-white">
+        <span>Them san pham</span>
+    </div>
+    <div class="card-body">
+        <div class="form-group">
+            <input id="maSP" class="form-control" placeholder="Ma san pham" #maSPref>
+        </div>
+        <div class="form-group">
+            <input id="tenSP " class="form-control" placeholder="Ten san pham" #tenSPref>
+        </div>
+        <div class="form-group">
+            <input id="giaSP" class="form-control" placeholder="Gia" #giaSPref>
+        </div>
+        <button id="them" class="btn btn-success"
+            (click)="addProductHandler(maSPref.value, tenSPref.value, giaSPref.value)">Them</button>
+    </div>
+</div>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+                <tr>
+                    <th>So thu tu</th>
+                    <th>Ma SP</th>
+                    <th>Title</th>
+                    <th>Gia</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <!-- <tr>
+                <td>1</td>
+                <td>News</td>
+                <td>News Cate</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Products</td>
+                <td>Main Products</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Blogs</td>
+                <td>Parent Blogs</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr> -->
+            <tr *ngFor="let item of mangSP; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.maSP}}</td>
+                <td>{{item.tenSP}}</td>
+                <td>{{item.giaSP}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span
+                            class="glyphicon glyphicon-edit"></span> Edit</a> <a (click) = "deleteProduct(item.maSP)"href="#"
+                        class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+        </table>
+    </div>
+</div>

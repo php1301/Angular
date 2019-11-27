@@ -9,6 +9,9 @@ import { BaiTap2Module } from './baitapmodule/bai-tap2/bai-tap2.module';
 import { DatabindingModule } from './databinding/databinding.module';
 import { FormsModule } from '@angular/forms';
 import { DirectivesModule } from './directives/directives.module';
+import { Assignment1Module } from './assignment1/assignment1.module';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { ComponentInteractionModule } from './component-interaction/component-interaction.module';
 
 @NgModule({
   declarations: [
@@ -16,16 +19,20 @@ import { DirectivesModule } from './directives/directives.module';
     // DemoComponent,
     Demo2Component,
     // Bt2HomeComponent
+    
 
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     // cac component cua app module co the goi va su dung cac component ma baitap2module da export ra ben ngoai
     BaiTap2Module,
     DatabindingModule,
     FormsModule,
-    DirectivesModule
+    DirectivesModule,
+    Assignment1Module,
+    ComponentInteractionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
