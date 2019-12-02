@@ -1,0 +1,80 @@
+<div class="container">
+    <h1 class="display-4 text-center">Mua Hàng Online</h1>
+    <div class="row mt-4">
+        <div *ngFor="let item of products" class="col-4">
+
+            <app-product-item [ProductInput]="item" (productEmitter)="handleOutputCart($event)"></app-product-item>
+        </div>
+        <!-- <div class="col-4">
+
+            <app-product-item></app-product-item>
+        </div>
+        <div class="col-4">
+
+            <app-product-item></app-product-item>
+        </div> -->
+
+    </div>
+    <div class="row">
+        <div class="col-12 mt-5">
+            <span class="bg-warning text-white px-3 py-2">Thêm Hàng Thành Công</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 mt-5">
+            <h1 class="display-4">Giỏ Hàng</h1>
+        </div>
+        <div class="col-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Hình Ảnh</th>
+                        <th>Sản Phẩm</th>
+                        <th>Giá</th>
+                        <th>Số Lượng</th>
+                        <th>Tổng Cộng</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of cart" app-cart-item [cartItem]="item">
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="font-size:30px" class="font-weight-bold">Tổng Tiền</td>
+                        <td style="font-size:30px" class="font-weight-bold">{{totalAmount}}$</td>
+                        <td>
+                            <button style="font-size:30px" class="btn btn-info">Thanh Toán</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+------------Layout form đăng nhập ------------------
+<div class="container">
+    <div class="row">
+        <div class="col-5 mx-auto">
+            <form>
+                <h4 class="display-4">Đăng Nhập</h4>
+                <div class="form-group">
+                    <label for="">Tài Khoản</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Mật Khẩu</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success">Đăng nhập</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

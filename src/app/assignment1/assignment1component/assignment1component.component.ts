@@ -43,7 +43,7 @@ export class Assignment1componentComponent implements OnInit {
   //   var giaSPSP = this.getEle("giaSPSP").value
   //   var SanPham = new SanPham(maSP, tenSP, giaSPSP);
   // })
-  addProductHandler = (maSP: string, tenSP: string, giaSP: number) => {
+  addProductHandler = (maSP: number, tenSP: string, giaSP: number) => {
     const index = this.mangSP.findIndex(item => item.maSP === maSP)
     if (index !== -1) return; // kiem tra id
     const newProduct = {
@@ -54,7 +54,7 @@ export class Assignment1componentComponent implements OnInit {
     this.mangSP.push(newProduct)
     console.log(this.mangSP)
   }
-  deleteProduct = (maSP: string) => {
+  deleteProduct = (maSP: number) => {
     this.mangSP = [...this.mangSP]
     var viTri
     this.mangSP.map((item, index) => {

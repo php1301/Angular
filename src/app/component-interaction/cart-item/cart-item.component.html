@@ -1,0 +1,14 @@
+<td><img style="width:200px;" [src]="cartItem.product.image" /></td>
+<td style="font-size:25px;">{{cartItem?.product?.name}}</td>
+<td>{{cartItem?.product?.price}}</td>
+<td>
+    {{cartItem.quanity}}
+    <div class="btn-group">
+        <button class="btn btn-info border-right">-</button>
+        <button class="btn btn-info border-left">+</button>
+    </div>
+</td>
+<td>{{cartItem?.product?.price * cartItem?.quanity}}$</td>
+<td>
+    <button class="btn btn-info">x</button>
+</td>

@@ -1,0 +1,7 @@
+<div class="card p-2">
+    <img style="height:280px;" [src]="productItems.image" class="w-100" alt="">
+    <p>
+        {{productItems.description}}
+    </p>
+    <button (click)="chooseItem(productItems)" mat-raised-button color="primary"> Cart </button>
+</div>

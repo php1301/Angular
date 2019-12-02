@@ -1,4 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ViewChildren, QueryList, ViewChild } from '@angular/core';
+import { SeatItemComponent } from '../seat-item/seat-item.component';
 
 @Component({
   selector: 'app-bookticket',
@@ -7,7 +8,9 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class BookticketComponent implements OnInit {
 
-
+  @ViewChildren(SeatItemComponent) isSeatItem: QueryList<SeatItemComponent>
+  // @ViewChild() dom den phan tu dau tien, dom theo reference
+  @ViewChild('title', { static: false }) titleH3: any
   seat: { SoGhe: number, TenGhe: string, Gia: number, TrangThai: boolean }[] = [
 
     { SoGhe: 1, TenGhe: "số1", Gia: 100, TrangThai: true },
@@ -23,7 +26,7 @@ export class BookticketComponent implements OnInit {
   OutputSeatArr: { SoGhe: number, TenGhe: string, Gia: number, TrangThai: boolean }[] = []
   handleOutputSeat(event): void {
     const index = this.OutputSeatArr.findIndex(item => item.SoGhe === event.SoGhe) // kiem tra so gheh da ton tai hay chua, tra ve cac item So ghe = event . so ghe
-    
+
     if (index !== -1) {
       this.OutputSeatArr.splice(index, 1)
       console.log(index)
@@ -33,14 +36,23 @@ export class BookticketComponent implements OnInit {
       console.log(index)
       console.log(event)
       this.OutputSeatArr.push(event)
+      alert(this.titleH3.nativeElement.innerHTML)
     }
   }
-  cancelSeat(SoGhe: number):void{
+  cancelSeat(SoGhe: number): void {
     const index = this.OutputSeatArr.findIndex(item => item.SoGhe === SoGhe)
-    index !== -1 && this.OutputSeatArr.splice(index, 1)
+    if (index !== -1) {
+      this.OutputSeatArr.splice(index, 1)
+      // dom toi seatItemComponent co seatItem.soGhe === SoGhe, chuyen IsBooking = false
+      this.isSeatItem.forEach(item => {
+        if (item.seat.SoGhe === SoGhe) {
+          item.isBooking = false;
+        }
+      })
+    }
   }
   constructor() { }
-
+  // didmount
   ngOnInit() {
   }
 

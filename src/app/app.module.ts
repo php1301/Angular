@@ -12,6 +12,7 @@ import { DirectivesModule } from './directives/directives.module';
 import { Assignment1Module } from './assignment1/assignment1.module';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { ComponentInteractionModule } from './component-interaction/component-interaction.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ComponentInteractionModule } from './component-interaction/component-in
     FormsModule,
     DirectivesModule,
     Assignment1Module,
-    ComponentInteractionModule
+    ComponentInteractionModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
